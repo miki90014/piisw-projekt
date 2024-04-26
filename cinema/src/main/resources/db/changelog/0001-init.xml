@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.1.xsd">
+
+    <changeSet id="0001-init" author="kontna">
+        <createTable tableName="room">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="room_name" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <createTable tableName="seat">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="seat_row" type="char(1)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="number" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="room_id" type="bigint">
+                <constraints nullable="false" foreignKeyName="fk_seat_room_id" references="room(id)"/>
+            </column>
+        </createTable>
+        <createTable tableName="movie">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="movie_name" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <createTable tableName="seance">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="movie_id" type="bigint">
+                <constraints nullable="false" foreignKeyName="fk_movie_id" references="movie(id)"/>
+            </column>
+            <column name="room_id" type="bigint">
+                <constraints nullable="false" foreignKeyName="fk_seance_room_id" references="room(id)"/>
+            </column>
+            <column name="date_of_seance" type="date">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <createTable tableName="available_seats">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="seance_id" type="bigint">
+                <constraints nullable="false" foreignKeyName="fk_seance_id" references="seance(id)"/>
+            </column>
+            <column name="seat_id" type="bigint">
+                <constraints nullable="false" foreignKeyName="fk_seat_id" references="seat(id)"/>
+            </column>
+            <column name="reserved" type="boolean">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ticket" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="price" type="float(1)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+    </changeSet>
+</databaseChangeLog>
