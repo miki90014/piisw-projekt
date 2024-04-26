@@ -6,6 +6,7 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.sql.Timestamp;
 import java.time.LocalDate;
 
 import static jakarta.persistence.FetchType.LAZY;
@@ -21,5 +22,5 @@ public class Seance {
     private Movie movie;
     @ManyToOne(fetch = LAZY)
     private Room room;
-    private LocalDate dateOfSeance;
+    private Timestamp dateOfSeance;
 }

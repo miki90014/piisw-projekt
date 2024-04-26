@@ -46,7 +46,7 @@
             <column name="room_id" type="bigint">
                 <constraints nullable="false" foreignKeyName="fk_seance_room_id" references="room(id)"/>
             </column>
-            <column name="date_of_seance" type="date">
+            <column name="date_of_seance" type="DATETIME">
                 <constraints nullable="false"/>
             </column>
         </createTable>
@@ -64,12 +64,13 @@
                 <constraints nullable="false"/>
             </column>
             <column name="ticket" type="varchar(255)">
-                <constraints nullable="false"/>
+                <constraints nullable="true"/>
             </column>
             <column name="price" type="float(1)">
-                <constraints nullable="false"/>
+                <constraints nullable="true"/>
             </column>
         </createTable>
 
     </changeSet>
+    <include file="testdata.xml" relativeToChangelogFile="true" context="dev" />
 </databaseChangeLog>
