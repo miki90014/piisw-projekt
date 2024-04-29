@@ -19,4 +19,8 @@ export class CinemaServiceService {
     return this.http.get<Movie[]>(this.movieUrl);
   }
 
+  public getMovieById(id: any): Observable<Movie> {
+    return this.http.get<Movie>(this.movieUrl + "/" + id);
+  }
+
 }

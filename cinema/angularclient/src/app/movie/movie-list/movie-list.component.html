@@ -3,9 +3,11 @@
     <section class="d-flex flex-column gap-2">
       @for (movie of movies; track movie.id) {
         <div class="card">
-          <div class="card-body">
-            <h5 class="card-title">{{ movie.movieName }}</h5>
-          </div>
+          <a [routerLink]="[book.id]"></a>
+            <div class="card-body">
+              <h5 class="card-title">{{ movie.movieName }}</h5>
+            </div>
+          </a>
         </div>
       }
   
