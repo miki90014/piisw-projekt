@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import static jakarta.persistence.FetchType.EAGER;
 import static jakarta.persistence.FetchType.LAZY;
 
 @Entity
@@ -16,6 +17,6 @@ public class Seat {
     private Long id;
     private char seatRow;
     private int number;
-    @ManyToOne(fetch = LAZY)
+    @ManyToOne(fetch = EAGER)
     Room room;
 }

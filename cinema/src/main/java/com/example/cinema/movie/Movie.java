@@ -15,4 +15,11 @@ public class Movie {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String movieName;
+    private String movieDescription;
+    private String movieRunningTime;
+    private String movieThumbnailUrl;
+    //private String movieDirector;
+    //private String movieGenre;
+    //private String movieRating;
+    //private String movieYear;
 }
