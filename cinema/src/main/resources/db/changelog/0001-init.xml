@@ -35,6 +35,15 @@
             <column name="movie_name" type="varchar(255)">
                 <constraints nullable="false"/>
             </column>
+            <column name="movie_description" type="varchar(1000)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="movie_running_time" type="varchar(10)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="movie_thumbnail_url" type="varchar(255)">
+                <constraints nullable="true"/>
+            </column>
         </createTable>
         <createTable tableName="seance">
             <column name="id" type="bigint" autoIncrement="true">

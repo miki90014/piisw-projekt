@@ -9,6 +9,7 @@ import lombok.Setter;
 import java.sql.Timestamp;
 import java.time.LocalDate;
 
+import static jakarta.persistence.FetchType.EAGER;
 import static jakarta.persistence.FetchType.LAZY;
 
 @Entity
@@ -18,9 +19,9 @@ public class Seance {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @ManyToOne(fetch = LAZY)
+    @ManyToOne(fetch = EAGER)
     private Movie movie;
-    @ManyToOne(fetch = LAZY)
+    @ManyToOne(fetch = EAGER)
     private Room room;
     private Timestamp dateOfSeance;
 }
