@@ -1,12 +1,11 @@
-import {inject} from '@angular/core';
 import {ActivatedRouteSnapshot, ResolveFn, RouterStateSnapshot} from '@angular/router';
 import { CinemaServiceService } from '../cinema-service/cinema-service.service';
-import {Movie} from '../model/movie';
+import { MovieSeance } from '../model/movie-seance';
+import {inject} from '@angular/core';
 
-
-export const movieListResolverResolver: ResolveFn<Movie[]> = (
+export const movieDetailResolver: ResolveFn<MovieSeance[]> = (  
   route: ActivatedRouteSnapshot, 
   state: RouterStateSnapshot,
 ) => {
-  return inject(CinemaServiceService).findAllMovies();
+  return inject(CinemaServiceService).getMovieById(route.paramMap.get('id'));
 };
