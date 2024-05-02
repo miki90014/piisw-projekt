@@ -1,13 +1,13 @@
 <article class="m-3">
-    <h2>What's on</h2>
+    <h1>What's on</h1>
     <section class="d-flex flex-column gap-2">
       @for (movie of movies; track movie.id) {
         <div class="card">
-        <a [routerLink]="[book.id]">
-          <div class="card-body">
-            <h3 class="card-title">{{ movie.movieName }}</h3>
-            <h5>{{ movie.movieRunningTime }}</h5>
-            <p> {{ movie.movieDescription }}</p>
+          <a [routerLink]="[movie.id]">
+            <h2>{{movie.movieName}}</h2>
+            <div class="container">
+              <img [src]="[movie.movieThumbnailUrl]" alt="Example Image">
+              <p>{{movie.movieDescription}}</p>
           </div>
           </a>
         </div>

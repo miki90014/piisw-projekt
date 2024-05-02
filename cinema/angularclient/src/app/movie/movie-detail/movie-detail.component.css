@@ -1,0 +1,22 @@
+.card {
+    margin-left: 80px;
+    width: 150px;
+    padding: 10px;
+}
+
+img {
+    height: 300px;
+    width: auto;
+}
+
+.container * {
+    font-size: larger;
+}
+
+.container-title{
+    display: flex;
+}
+
+.container-title h1{
+    margin-right: 20px;
+}

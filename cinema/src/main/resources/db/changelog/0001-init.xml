@@ -69,7 +69,7 @@
             <column name="seat_id" type="bigint">
                 <constraints nullable="false" foreignKeyName="fk_seat_id" references="seat(id)"/>
             </column>
-            <column name="reserved" type="boolean">
+            <column name="seat_status" type="varchar(255)">
                 <constraints nullable="false"/>
             </column>
             <column name="ticket" type="varchar(255)">

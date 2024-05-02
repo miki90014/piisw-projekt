@@ -16,7 +16,7 @@ import java.util.Optional;
 public class SeanceController {
     private final SeanceRepository seanceRepository;
 
-    @GetMapping("/movie/{movieId}/seances")
+    @GetMapping("/movies/{movieId}/seances")
     public List<Seance> getSeances(@PathVariable ("movieId") Long movieId) {
         List<Seance> seances = seanceRepository.findByMovieId(movieId);
         if (!seances.isEmpty()) {

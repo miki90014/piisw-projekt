@@ -20,7 +20,8 @@ public class AvailableSeats {
     private Seance seance;
     @ManyToOne(fetch = EAGER)
     private Seat seat;
-    private boolean reserved;
+    @Enumerated(EnumType.STRING)
+    private SeatStatus seatStatus;
     private String ticket;
     private Double price;
 }

@@ -1,1 +1,26 @@
-<p>movie-detail works!</p>
+<article class="m-3">
+    <h1 *ngIf="seances === undefined || seances.length === 0">No showtimes available.</h1>
+    <div *ngIf="seances && seances.length > 0" class="container-title">
+      <h1>{{ seances[0].movie.movieName }}</h1>
+      <h5>{{[seances[0].movie.movieRunningTime]}}</h5>
+    </div>
+    <section *ngIf="seances && seances.length > 0" class="d-flex flex-column gap-2">
+      <div class="container">
+        <img [src]="[seances[0].movie.movieThumbnailUrl]" class="img-thumbnail">
+        <p>{{[seances[0].movie.movieDescription]}}</p>
+      </div>
+    </section>
+    <h2>Showtimes</h2>
+    <section  class="d-flex flex-column gap-2">
+      @for (seance of seances; track seance.id) {
+        <div class="card">
+          <a [routerLink]="['../../available_seats', seance.id]">
+            <div class="small-container">
+                <p>{{convert(seance.dateOfSeance)}}</p>
+            </div>
+          </a>
+        </div>
+      }
+
+    </section>
+  </article>
