@@ -1,15 +1,17 @@
 <article class="m-3">
-    <h2>List of all movies</h2>
+    <h2>What's on</h2>
     <section class="d-flex flex-column gap-2">
       @for (movie of movies; track movie.id) {
         <div class="card">
-          <a [routerLink]="[book.id]"></a>
-            <div class="card-body">
-              <h5 class="card-title">{{ movie.movieName }}</h5>
-            </div>
+        <a [routerLink]="[book.id]">
+          <div class="card-body">
+            <h3 class="card-title">{{ movie.movieName }}</h3>
+            <h5>{{ movie.movieRunningTime }}</h5>
+            <p> {{ movie.movieDescription }}</p>
+          </div>
           </a>
         </div>
       }
-  
+
     </section>
   </article>
