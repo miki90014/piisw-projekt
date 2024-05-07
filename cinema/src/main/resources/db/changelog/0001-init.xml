@@ -79,7 +79,28 @@
                 <constraints nullable="true"/>
             </column>
         </createTable>
-
+        <createTable tableName="reservation">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="total_price" type="float(1)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="person_data" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <createTable tableName="list_of_reserved_seats">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="reserved_seat_id" type="bigint">
+                <constraints nullable="false" foreignKeyName="fk_reserved_seat_id" references="available_seats(id)"/>
+            </column>
+            <column name="reservation_id" type="bigint">
+                <constraints nullable="false" foreignKeyName="fk_reservation_id" references="reservation(id)"/>
+            </column>
+        </createTable>
     </changeSet>
     <include file="testdata.xml" relativeToChangelogFile="true" context="dev" />
 </databaseChangeLog>

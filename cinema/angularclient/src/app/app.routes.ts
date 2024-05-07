@@ -5,6 +5,8 @@ import { movieDetailResolver} from './resolver/movie-detail.resolver';
 import { MovieDetailComponent } from './movie/movie-detail/movie-detail.component';
 import { SeanceAvailableSeatsComponent } from './reserve-seats/seance-available-seats/seance-available-seats.component';
 import { seanceAvailableSeatsResolver } from './resolver/seance-available-seats.resolver';
+import { ReservationDetailComponent } from './reservation-detail/reservation-detail.component';
+import { reservationDetailResolver} from './resolver/reservation-detail.resolver';
 
 export const routes: Routes = [
     {
@@ -32,5 +34,12 @@ export const routes: Routes = [
         resolve: {
           availableSeats: seanceAvailableSeatsResolver
         }
+      },
+      {
+        path: 'reservations/:id',
+        component: ReservationDetailComponent,
+        resolve: {
+          reservation: reservationDetailResolver
       }
+    }
 ];
