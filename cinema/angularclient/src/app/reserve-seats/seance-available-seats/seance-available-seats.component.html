@@ -1,24 +1,32 @@
-<article class="m-3">
-    <h1 *ngIf="availableSeats === undefined || availableSeats.length === 0">No seats are available.</h1>
-    <div *ngIf="availableSeats && availableSeats.length > 0" class="container-title">
-      <h1>{{ availableSeats[0].seance.movie.movieName}}</h1>
-      <h5>{{availableSeats[0].seat.room.roomName}}</h5>
-
-      <h5>{{convert(availableSeats[0].seance.dateOfSeance)}}</h5>
-    </div>
-    <h2>Available seats</h2>
-    <section  class="d-flex flex-column gap-2">
-      @for (seat of availableSeats; track seat.id) {
-        <div class="card">
-          <a [routerLink]="['']">
-            <div class="small-container">
-                <p>price: {{seat.price}}</p>
-                <p>seat number: {{seat.seat.number}}</p>
-                <p>row: {{seat.seat.seatRow}}</p>
-            </div>
-          </a>
-        </div>
-      }
-
-    </section>
+<form (ngSubmit)="onSubmit()" #reviewForm="ngForm" novalidate class="reservation-form">
+  <article class="m-3">
+      <h1 *ngIf="availableSeats === undefined || availableSeats.length === 0">No seats are available.</h1>
+      <div *ngIf="availableSeats && availableSeats.length > 0" class="container-title">
+        <h1>{{ availableSeats[0].seance.movie.movieName}}</h1>
+        <h5>{{availableSeats[0].seat.room.roomName}}</h5>
+        <h5>{{convert(availableSeats[0].seance.dateOfSeance)}}</h5>
+      </div>
+      <h2>Available seats</h2>
+      <section class="d-flex flex-column gap-2">
+        @for (seat of availableSeats; track seat.id) {
+          <div class="card">
+              <div class="small-container">
+                  <p>price: {{seat.price}}</p>
+                  <p>seat number: {{seat.seat.number}}</p>
+                  <p>row: {{seat.seat.seatRow}}</p>
+              </div>
+          </div>
+        } 
+      </section>
+      <div class="form-group">
+          <label for="personData">Your name and surname here</label>
+          <input type="text" class="form-control" id="personData" required
+                 [(ngModel)]="reservation.personData" name="personData" #reservationTitle="ngModel">
+      </div>
+      <h3>Total Price: {{ reservation.totalPrice }} zł</h3>
+      <div class="form-actions">
+          <button type="submit" class="btn btn-success" [disabled]="!reservationTitle.valid">Save</button>
+          <a routerLink=".." class="btn btn-cancel">Cancel</a>
+      </div>
   </article>
+</form>

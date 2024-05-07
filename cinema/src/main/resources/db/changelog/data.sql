@@ -28,3 +28,8 @@ VALUES
     (4, 1, 4, 'VALIDATED', '', 20.5),
     (5, 1, 5, 'RESERVED', '', 20.5);
 
+INSERT INTO reservation(id, total_price, person_data)
+VALUES
+    (1, 20.5, 'WeronikaZ'),
+    (2, 41.0, 'PatrycjaK');
+
