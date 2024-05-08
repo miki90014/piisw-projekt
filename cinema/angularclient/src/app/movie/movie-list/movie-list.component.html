@@ -1,7 +1,10 @@
 <article class="m-3">
-    <h1>What's on</h1>
+    <h1>What's on</h1>  
+    <div id="main-div">
     <section class="d-flex flex-column gap-2">
+      
       @for (movie of movies; track movie.id) {
+        
         <div class="card">
           <a [routerLink]="[movie.id]">
             <h2>{{movie.movieName}}</h2>
@@ -10,8 +13,10 @@
               <p>{{movie.movieDescription}}</p>
           </div>
           </a>
-        </div>
+          </div>
+        
       }
-
+    
     </section>
+  </div>
   </article>
