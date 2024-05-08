@@ -57,7 +57,7 @@
             </label>
             <input class="form-check-input" (change)="updateTotalPrice($event, seats.get('B3')?.seatObject)" type="checkbox" [disabled]="seats.get('B3')?.seatStatus!== 'EMPTY'" >
           </div>
-          <div class="seat" [ngStyle]="{'background-color': seats.get('B3') ?.seatStatus!== 'EMPTY' ? 'red' : ''}">
+          <div class="seat" [ngStyle]="{'background-color': seats.get('B4') ?.seatStatus!== 'EMPTY' ? 'red' : ''}">
             <label class="form-check-label" [for]="'seat_' + seats.get('B4')?.seat_id">
               B4 price: {{ seats.get('B4')?.price }}
             </label>
