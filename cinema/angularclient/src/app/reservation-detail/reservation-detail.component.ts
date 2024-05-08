@@ -53,6 +53,19 @@ export class ReservationDetailComponent {
         this.loadImage();
       }
     }
+
+    downloadImage() {
+      if (!this.qrCodeImageUrl) {
+          console.log('Image URL is not available.');
+          return;
+      }
+      const a = document.createElement('a');
+      a.href = this.qrCodeImageUrl;
+      a.download = 'image.png';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+  }
   
     constructor(private readonly activatedRoute: ActivatedRoute) {
       this.reservation = this.activatedRoute.snapshot.data['reservation'];

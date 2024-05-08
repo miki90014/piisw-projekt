@@ -7,18 +7,65 @@
         <h5>{{convert(availableSeats[0].seance.dateOfSeance)}}</h5>
       </div>
       <h2>Available seats</h2>
-      <section class="d-flex flex-column gap-2">
-        @for (seat of availableSeats; track seat.id) {
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" (change)="updateTotalPrice($event, seat)">
-            <label class="form-check-label" for="seat_{{ seat.id }}">
-              <p>price: {{seat.price}}</p>
-              <p>seat number: {{seat.seat.number}}</p>
-              <p>row: {{seat.seat.seatRow}}</p>
+
+      <div *ngIf="availableSeats[0].seat.room.roomName === 'IMAX'" class="container">
+        <div class="row">
+          Screen
+        </div>
+        <div class="row">
+            <div class="seat" [ngStyle]="{'background-color': seats.get('A1')?.seatStatus!== 'EMPTY' ? 'red' : 'green'}">
+              <label class="form-check-label" [for]="'seat_' + seats.get('A1')?.seat_id">
+                A1 price: {{ seats.get('A1')?.price }}
+              </label>
+              <input class="form-check-input" (change)="updateTotalPrice($event, seats.get('A1')?.seatObject)" type="checkbox" [disabled]="seats.get('A1')?.seatStatus!== 'EMPTY'" >
+            </div>
+            <div class="seat" [ngStyle]="{'background-color': seats.get('A2')?.seatStatus!== 'EMPTY' ? 'red' : 'green'}">
+              <label class="form-check-label" [for]="'seat_' + seats.get('A2')?.seat_id">
+                A2 price: {{ seats.get('A2')?.price }}
+              </label>
+              <input class="form-check-input" (change)="updateTotalPrice($event, seats.get('A2')?.seatObject)" type="checkbox" [disabled]="seats.get('A2')?.seatStatus!== 'EMPTY'" >
+            </div>
+            <div class="seat" [ngStyle]="{'background-color': seats.get('A3')?.seatStatus!== 'EMPTY' ? 'red' : 'green'}">
+              <label class="form-check-label" [for]="'seat_' + seats.get('A3')?.seat_id">
+                A3 price: {{ seats.get('A3')?.price }}
+              </label>
+              <input class="form-check-input" (change)="updateTotalPrice($event, seats.get('A3')?.seatObject)" type="checkbox" [disabled]="seats.get('A3')?.seatStatus!== 'EMPTY'" >
+            </div>
+            <div class="seat" [ngStyle]="{'background-color': seats.get('A4')?.seatStatus!== 'EMPTY' ? 'red' : 'green'}">
+              <label class="form-check-label" [for]="'seat_' + seats.get('A4')?.seat_id">
+                A4 price: {{ seats.get('A4')?.price }}
+              </label>
+              <input class="form-check-input" (change)="updateTotalPrice($event, seats.get('A4')?.seatObject)" type="checkbox" [disabled]="seats.get('A4')?.seatStatus!== 'EMPTY'" >
+            </div>
+        </div>
+        <div class="row">
+          <div class="seat" [ngStyle]="{'background-color': seats.get('B1')?.seatStatus!== 'EMPTY' ? 'red' : 'green'}">
+            <label class="form-check-label" [for]="'seat_' + seats.get('B1')?.seat_id">
+              B1 price: {{ seats.get('B1')?.price }}
             </label>
+            <input class="form-check-input" (change)="updateTotalPrice($event, seats.get('B1')?.seatObject)" type="checkbox" [disabled]="seats.get('B1')?.seatStatus!== 'EMPTY'" >
           </div>
-        } 
-      </section>
+          <div class="seat" [ngStyle]="{'background-color': seats.get('B2')?.seatStatus!== 'EMPTY' ? 'red' : 'green'}">
+            <label class="form-check-label" [for]="'seat_' + seats.get('B2')?.seat_id">
+              B2 price: {{ seats.get('B2')?.price }}
+            </label>
+            <input class="form-check-input" (change)="updateTotalPrice($event, seats.get('B2')?.seatObject)" type="checkbox" [disabled]="seats.get('B2')?.seatStatus!== 'EMPTY'" >
+          </div>
+          <div class="seat" [ngStyle]="{'background-color': seats.get('B3')?.seatStatus!== 'EMPTY' ? 'red' : 'green'}">
+            <label class="form-check-label" [for]="'seat_' + seats.get('B3')?.seat_id">
+              B3 price: {{ seats.get('B3')?.price }}
+            </label>
+            <input class="form-check-input" (change)="updateTotalPrice($event, seats.get('B3')?.seatObject)" type="checkbox" [disabled]="seats.get('B3')?.seatStatus!== 'EMPTY'" >
+          </div>
+          <div class="seat" [ngStyle]="{'background-color': seats.get('B4')?.seatStatus!== 'EMPTY' ? 'red' : 'green'}">
+            <label class="form-check-label" [for]="'seat_' + seats.get('B4')?.seat_id">
+              B4 price: {{ seats.get('B4')?.price }}
+            </label>
+            <input class="form-check-input" (change)="updateTotalPrice($event, seats.get('B4')?.seatObject)" type="checkbox" [disabled]="seats.get('B4')?.seatStatus!== 'EMPTY'" >
+          </div>
+        </div>
+      </div>
+
       <div class="form-group">
           <label for="personData">Your name and surname here</label>
           <input type="text" class="form-control" id="personData" required
@@ -27,7 +74,7 @@
       <p id="totalPrice">Total Price: ${{ totalPrice }}</p>
       <div class="form-actions">
           <button type="submit" class="btn btn-success" [disabled]="!reservationTitle.valid">Save</button>
-          <a routerLink=".." class="btn btn-cancel">Cancel</a>
+          <a routerLink="../../movies" class="btn btn-cancel">Cancel</a>
       </div>
   </article>
 </form>

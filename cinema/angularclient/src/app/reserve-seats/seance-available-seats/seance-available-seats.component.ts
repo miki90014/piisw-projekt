@@ -3,6 +3,7 @@ import { ActivatedRoute, RouterLink, Router } from '@angular/router';
 import { CommonModule, NgForOf } from '@angular/common'; 
 import { AvailableSeats } from '../../model/available-seats';
 import { Reservation } from '../../model/reservation';
+import { SeatFrontEnd } from '../../model/seat-front-end';
 import { CinemaServiceService } from '../../cinema-service/cinema-service.service';
 import { FormsModule } from '@angular/forms';
 import { response } from 'express';
@@ -14,21 +15,36 @@ import { response } from 'express';
   templateUrl: './seance-available-seats.component.html',
   styleUrl: './seance-available-seats.component.css'
 })
+
 export class SeanceAvailableSeatsComponent {
 
     readonly availableSeats: AvailableSeats[];
     readonly reservation: Reservation;
     totalPrice: number = 0;
+    seats: Map<string, SeatFrontEnd>;
+
   
     constructor(private router: Router, private readonly activatedRoute: ActivatedRoute, private readonly cinemaService: CinemaServiceService) {
       this.availableSeats = this.activatedRoute.snapshot.data['availableSeats'];
+      this.seats = new Map<string, SeatFrontEnd>();
+      this.availableSeats.forEach(availableSeat => {
+        let newSeat = new SeatFrontEnd()
+        newSeat.price = availableSeat.price
+        newSeat.seat_id = availableSeat.id
+        newSeat.seatStatus = availableSeat.seatStatus
+        newSeat.seatObject = availableSeat
+        let key = availableSeat.seat.seatRow + availableSeat.seat.number
+        this.seats.set(key, newSeat)
+      });
       this.reservation = {
-      id: "",
-      totalPrice: 0,
-      personData: "",
-      reservedSeats: [],
-      ticket: "",  
-    }
+        id: "",
+        totalPrice: 0,
+        personData: "",
+        reservedSeats: [],
+        ticket: "",  
+      }
+      console.log(this.seats)
+
   }
 
   updateTotalPrice(event: any, seat: any) {

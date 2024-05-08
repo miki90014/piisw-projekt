@@ -11,9 +11,13 @@
 
 <div *ngIf="!isLoading && !imageLoadError">
     <img [src]="qrCodeImageUrl" alt="Your Image" (error)="handleImageError()">
+    <button (click)="downloadImage()" class="btn btn-primary">Download Ticket</button>
+
     <p>Reservation code: {{reservation.ticket}}</p>
 </div>
 
 <div *ngIf="imageLoadError">
   <p>Failed to load image.</p>
 </div>  
+
+<a routerLink="../../movies" class="btn btn-primary">Return to main page</a>

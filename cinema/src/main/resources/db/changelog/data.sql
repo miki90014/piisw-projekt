@@ -1,8 +1,6 @@
 INSERT INTO room(id, room_name)
 VALUES
-    (1, 'Sala 1'),
-    (2, 'Sala 2'),
-    (3, 'IMAX');
+    (1, 'IMAX');
 INSERT INTO movie(id, movie_name, movie_description, movie_running_time, movie_thumbnail_url)
 VALUES
     (1, 'Oppenheimer', 'The story of American scientist J. Robert Oppenheimer and his role in the development of the atomic bomb.', '180 min', 'assets/images/oppenheimer.jpg'),
@@ -21,9 +19,10 @@ VALUES
 INSERT INTO seance(id, movie_id, room_id, date_of_seance)
 VALUES
     (1, 1, 1, '2023-04-26 15:00:00'),
-    (2, 1, 2, '2023-04-26 17:00:00'),
+    (2, 1, 1, '2023-04-26 17:00:00'),
     (3, 2, 1, '2023-04-26 20:00:00'),
-    (4, 2, 2, '2023-04-26 21:00:00');
+    (4, 2, 1, '2023-04-26 21:00:00');
+
 INSERT INTO available_seats(id, seance_id, seat_id, seat_status, price)
 VALUES
     (1, 1, 1, 'RESERVED', 20.5),
@@ -33,7 +32,16 @@ VALUES
     (5, 1, 5, 'RESERVED', 24),
     (6, 1, 6, 'EMPTY', 24),
     (7, 1, 7, 'EMPTY', 24),
-    (8, 1, 8, 'EMPTY', 24);
+    (8, 1, 8, 'EMPTY', 24),
+
+    (9, 2, 1, 'EMPTY', 20.5),
+    (10, 2, 2, 'EMPTY', 20.5),
+    (11, 2, 3, 'EMPTY', 20.5),
+    (12, 2, 4, 'EMPTY', 20.5),
+    (13, 2, 5, 'EMPTY', 24),
+    (14, 2, 6, 'EMPTY', 24),
+    (15, 2, 7, 'EMPTY', 24),
+    (16, 2, 8, 'EMPTY', 24);
 
 INSERT INTO reservation(id, total_price, person_data, ticket)
 VALUES
