@@ -1,0 +1,13 @@
+*{
+    
+    color:rgb(255, 255, 255);
+}
+.card{
+    background-image: radial-gradient( rgba(255, 255, 255, 0), rgb(0, 0, 0));
+}
+.card:hover{
+    background-color: rgba(255, 187, 0, 0.247);
+}
+.container{
+    margin-left: 30px;
+}
