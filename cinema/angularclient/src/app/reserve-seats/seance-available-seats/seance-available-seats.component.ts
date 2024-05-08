@@ -79,13 +79,15 @@ export class SeanceAvailableSeatsComponent {
 
 
   onSubmit(): void {
-    console.log('Returned string:');
-    this.cinemaService.saveReservation(this.reservation).subscribe({
-      next: (response: number) => {
-        console.log('Returned string:', response);
-        this.router.navigate([`/reservations/${response}`]);
-      },
-    });
+    if (this.reservation.reservedSeats.length === 0) {
+      alert("You must check at least one seat")
+    } else {
+      this.cinemaService.saveReservation(this.reservation).subscribe({
+        next: (response: number) => {
+          this.router.navigate([`/reservations/${response}`]);
+        },
+      });
+    }
   }
   }
   

@@ -1,0 +1,24 @@
+.btn-success {
+    --bs-btn-bg: rgb(190, 162, 40);
+    --bs-btn-disabled-bg: rgb(190, 162, 40, 0.5);
+    --bs-btn-disabled-border-color: white;
+    --bs-btn-border-color: white;
+    --bs-btn-hover-bg: rgba(255, 187, 0, 0.247);
+    --bs-btn-hover-border-color: white;
+    --bs-btn-active-bg: rgb(190, 162, 40);
+    --bs-btn-active-border-color: white;
+    margin: 10px;
+}
+
+.btn-cancel {
+    --bs-btn-hover-border-color: white;
+    --bs-btn-border-color: white;
+    --bs-btn-hover-bg: rgb(255, 255, 255, 0.2);
+    --bs-btn-color: white;
+}
+
+.btn {
+    width: 150px;
+    height: 60px;
+    margin: 20px;
+}
