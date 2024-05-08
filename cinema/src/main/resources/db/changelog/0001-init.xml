@@ -72,9 +72,6 @@
             <column name="seat_status" type="varchar(255)">
                 <constraints nullable="false"/>
             </column>
-            <column name="ticket" type="varchar(255)">
-                <constraints nullable="true"/>
-            </column>
             <column name="price" type="float(1)">
                 <constraints nullable="true"/>
             </column>
@@ -88,6 +85,9 @@
             </column>
             <column name="person_data" type="varchar(255)">
                 <constraints nullable="false"/>
+            </column>
+            <column name="ticket" type="varchar(255)">
+                <constraints nullable="true"/>
             </column>
         </createTable>
         <createTable tableName="list_of_reserved_seats">

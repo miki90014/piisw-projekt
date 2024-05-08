@@ -31,15 +31,15 @@ export class CinemaServiceService {
   }
 
   public getEmptyAvailbleSeatsForSeance(id: any): Observable<AvailableSeats[]> {
-    return this.http.get<AvailableSeats[]>(this.availableSeatsUrl + "/seance/" + id + "/empty");
+    return this.http.get<AvailableSeats[]>(this.availableSeatsUrl + "/seance/" + id);
   }
 
-  public getReservationById(id: any): Observable<Reservation[]> {
-    return this.http.get<Reservation[]>(this.reservationUrl + "/" + id );
+  public getReservationById(id: any): Observable<Reservation> {
+    return this.http.get<Reservation>(this.reservationUrl + "/" + id );
   }
 
-  public saveReservation(reservation: Reservation): Observable<Reservation>{
-    return this.http.post<Reservation>(this.reservationUrl, reservation)
+  public saveReservation(reservation: Reservation): Observable<number>{
+    return this.http.post<number>(this.reservationUrl, reservation);
   }
 
 }

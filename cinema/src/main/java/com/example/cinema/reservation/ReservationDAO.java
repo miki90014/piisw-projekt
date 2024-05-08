@@ -11,4 +11,5 @@ public class ReservationDAO {
     private Double totalPrice;
     private String personData;
     private ArrayList<AvailableSeats> reservedSeats;
+    private String ticket;
 }

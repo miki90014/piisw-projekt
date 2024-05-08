@@ -22,6 +22,5 @@ public class AvailableSeats {
     private Seat seat;
     @Enumerated(EnumType.STRING)
     private SeatStatus seatStatus;
-    private String ticket;
     private Double price;
 }

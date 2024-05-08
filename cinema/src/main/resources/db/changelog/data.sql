@@ -13,23 +13,30 @@ VALUES
     (2, 'A', 2, 1),
     (3, 'A', 3, 1),
     (4, 'A', 4, 1),
-    (5, 'B', 1, 1);
+    (5, 'B', 1, 1),
+    (6, 'B', 2, 1),
+    (7, 'B', 3, 1),
+    (8, 'B', 4, 1);
+
 INSERT INTO seance(id, movie_id, room_id, date_of_seance)
 VALUES
     (1, 1, 1, '2023-04-26 15:00:00'),
     (2, 1, 2, '2023-04-26 17:00:00'),
     (3, 2, 1, '2023-04-26 20:00:00'),
     (4, 2, 2, '2023-04-26 21:00:00');
-INSERT INTO available_seats(id, seance_id, seat_id, seat_status, ticket, price)
+INSERT INTO available_seats(id, seance_id, seat_id, seat_status, price)
 VALUES
-    (1, 1, 1, 'RESERVED', '', 20.5),
-    (2, 1, 2, 'EMPTY', '', 20.5),
-    (3, 1, 3, 'EMPTY', '', 20.5),
-    (4, 1, 4, 'VALIDATED', '', 20.5),
-    (5, 1, 5, 'RESERVED', '', 20.5);
+    (1, 1, 1, 'RESERVED', 20.5),
+    (2, 1, 2, 'EMPTY', 20.5),
+    (3, 1, 3, 'EMPTY', 20.5),
+    (4, 1, 4, 'VALIDATED', 20.5),
+    (5, 1, 5, 'RESERVED', 24),
+    (6, 1, 6, 'EMPTY', 24),
+    (7, 1, 7, 'EMPTY', 24),
+    (8, 1, 8, 'EMPTY', 24);
 
-INSERT INTO reservation(id, total_price, person_data)
+INSERT INTO reservation(id, total_price, person_data, ticket)
 VALUES
-    (1, 20.5, 'WeronikaZ'),
-    (2, 41.0, 'PatrycjaK');
+    (1, 20.5, 'WeronikaZ', ''),
+    (2, 41.0, 'PatrycjaK', '');
 
