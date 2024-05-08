@@ -7,6 +7,6 @@ import org.springframework.data.repository.query.Param;
 import java.util.List;
 
 public interface AvailableSeatsRepository extends CrudRepository<AvailableSeats, Long> {
-    @Query("SELECT a FROM AvailableSeats a WHERE a.seatStatus = :seatStatus AND a.seance.id = :seanceId")
-    List<AvailableSeats> findAvailableSeatsByStatusAndSeanceId(@Param("seatStatus") SeatStatus seatStatus, @Param("seanceId") Long seanceId);
+    @Query("SELECT a FROM AvailableSeats a WHERE a.seance.id = :seanceId")
+    List<AvailableSeats> findAvailableSeatsBySeanceId(@Param("seanceId") Long seanceId);
 }

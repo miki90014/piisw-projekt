@@ -26,8 +26,8 @@ public class AvailableSeatsController {
      return null;
     }
 
-    @GetMapping("/available_seats/seance/{id}/empty")
+    @GetMapping("/available_seats/seance/{id}")
     public List<AvailableSeats> getEmptyAvailableSeatsById(@PathVariable ("id") Long id) {
-        return availableSeatsRepository.findAvailableSeatsByStatusAndSeanceId(SeatStatus.EMPTY, id);
+        return availableSeatsRepository.findAvailableSeatsBySeanceId(id);
     }
 }

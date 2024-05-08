@@ -1,0 +1,100 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+.row {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.seat {
+    width: 100px;
+    height: 100px;
+    outline-style: solid;
+    outline-width: 1px;
+    border-radius: 5px;
+    outline-color: rgb(255, 255, 255);
+    background-image: radial-gradient( rgba(255, 255, 255, 0), rgb(0, 0, 0));
+    margin: 0 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.seat:hover{
+    background-color: rgba(255, 187, 0, 0.247);
+
+}
+
+
+
+.seat.selected {
+    background-color: #6cb2eb;
+}
+
+.seat.reserved {
+    background-color: #999;
+    cursor: not-allowed;
+}
+
+.row-label {
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+.form-control {
+    background-color: black;
+    color: white;
+    border: 1px solid white;
+    width: 25%;
+}
+
+.btn-success {
+    --bs-btn-bg: rgb(190, 162, 40);
+    --bs-btn-disabled-bg: rgb(190, 162, 40, 0.5);
+    --bs-btn-disabled-border-color: white;
+    --bs-btn-border-color: white;
+    --bs-btn-hover-bg: rgba(255, 187, 0, 0.247);
+    --bs-btn-hover-border-color: white;
+    --bs-btn-active-bg: rgb(190, 162, 40);
+    --bs-btn-active-border-color: white;
+    margin: 10px;
+}
+
+.btn-cancel {
+    --bs-btn-hover-border-color: white;
+    --bs-btn-border-color: white;
+    --bs-btn-hover-bg: rgb(255, 255, 255, 0.2);
+    --bs-btn-color: white;
+}
+
+input[type='checkbox'] {
+    accent-color: yellow;
+}
+
+.btn {
+    width: 150px;
+}
+
+.form-group {
+    margin-left: 50px;
+}
+ 
+.form-actions {
+    margin-left: 50px;
+}

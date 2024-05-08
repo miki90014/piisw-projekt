@@ -1,1 +1,42 @@
-<h1>This shit works</h1>
+<div class="container d-flex justify-content-center align-items-center">
+<h1>Reservation</h1>
+</div>
+<div class="container d-flex flex-column justify-content-center align-items-center">
+<h3><b>Date:</b> {{convert(reservation.reservedSeats[0].seance.dateOfSeance)}}</h3>
+<h3><b>Movie:</b> {{reservation.reservedSeats[0].seance.movie.movieName}}</h3>
+<h3><b>Room:</b> {{reservation.reservedSeats[0].seance.room.roomName}}</h3>
+<h3><b>Reserved Seats:</b></h3>
+@for (seat of reservation.reservedSeats; track seat.id) {
+        <p>Row: {{seat.seat.seatRow}} Number: {{seat.seat.number}}</p>
+    }
+</div>
+<div class="container flex-column justify-content-center align-items-center">
+<p><b>Personal Data:</b> {{reservation.personData}}</p>
+<p><b>Total Price:</b> ${{reservation.totalPrice}}</p>
+</div>
+<div class="container d-flex justify-content-center align-items-center">
+<div *ngIf="isLoading">
+    <div class="spinner-border align-items-center" role="status">
+        <span class="sr-only align-items-center"></span>
+    </div>
+    <p class="align-items-center">Loading...</p>
+</div>
+
+<div *ngIf="!isLoading && !imageLoadError">
+    <div class="container d-flex justify-content-center align-items-center">
+        <img [src]="qrCodeImageUrl" alt="Your Image" (error)="handleImageError()">
+    </div>
+    <br>
+    <p>Reservation code: {{reservation.ticket}}</p>
+</div>
+
+<div *ngIf="imageLoadError">
+  <p>Failed to load image.</p>
+</div>  
+</div>
+<div class="container d-flex justify-content-center align-items-center">
+<div class="form-actions flex justify-content-center">
+    <button *ngIf="!isLoading && !imageLoadError" (click)="downloadImage()" class="btn btn-success">Download Ticket</button>
+    <a routerLink="../../movies" class="btn btn-cancel">Return to main page</a>
+</div>
+</div>

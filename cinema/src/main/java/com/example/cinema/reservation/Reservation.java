@@ -18,4 +18,5 @@ public class Reservation {
     private Long id;
     private Double totalPrice;
     private String personData;
+    private String ticket;
 }

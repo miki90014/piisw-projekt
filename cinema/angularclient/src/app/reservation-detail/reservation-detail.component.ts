@@ -1,7 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, Sanitizer } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common'; 
 import { Reservation } from '../model/reservation';
+import { delay } from 'rxjs/operators';
+import { Observable, timer } from 'rxjs';
 
 @Component({
   selector: 'app-reservation-detail',
@@ -26,10 +28,47 @@ export class ReservationDetailComponent {
   
     return formattedDate
   }
-    readonly reservation: Reservation[];
+    readonly reservation: Reservation;
+    qrCodeImageUrl: string;
+    isLoading = true;
+    imageLoadError: boolean = false;
+    retries: number = 0;
+
+    ngOnInit(): void {
+      this.loadImage();
+    }
+  
+    loadImage(): void {
+      setTimeout(() => {
+        this.qrCodeImageUrl = `http://localhost:8080/tickets/${this.reservation.ticket}`;
+        this.isLoading = false;
+      }, 2000);
+    }
+
+    handleImageError(): void {
+      this.retries++;
+      if (this.retries <= 1) {
+        this.qrCodeImageUrl = '';
+        this.isLoading = true;
+        this.loadImage();
+      }
+    }
+
+    downloadImage() {
+      if (!this.qrCodeImageUrl) {
+          console.log('Image URL is not available.');
+          return;
+      }
+      const a = document.createElement('a');
+      a.href = this.qrCodeImageUrl;
+      a.download = 'image.png';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+  }
   
     constructor(private readonly activatedRoute: ActivatedRoute) {
       this.reservation = this.activatedRoute.snapshot.data['reservation'];
+      this.qrCodeImageUrl = `assets/qr-ticket/${this.reservation.ticket}.png`;
     }
-
 }

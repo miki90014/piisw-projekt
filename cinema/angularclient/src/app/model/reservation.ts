@@ -1,17 +1,20 @@
+import { Bytes } from "node-forge";
 import { AvailableSeats } from "./available-seats";
 
 export class Reservation {
-    id: number;
+    id: string;
     totalPrice: number;
     personData: string;
     reservedSeats: AvailableSeats[]; 
+    ticket: string;
 
     
     constructor() {
-        this.id = 0
+        this.id = ""
         this.totalPrice = 0 ;
         this.personData ="";
-        this.reservedSeats = []; 
+        this.reservedSeats = [];
+        this.ticket = "";
 
     }
 }
