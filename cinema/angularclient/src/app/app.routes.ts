@@ -7,6 +7,9 @@ import { SeanceAvailableSeatsComponent } from './reserve-seats/seance-available-
 import { seanceAvailableSeatsResolver } from './resolver/seance-available-seats.resolver';
 import { ReservationDetailComponent } from './reservation-detail/reservation-detail.component';
 import { reservationDetailResolver} from './resolver/reservation-detail.resolver';
+import { LoginComponent } from './login/login.component';
+import { CinemaAttendantComponent } from './cinema-attendant/cinema-attendant.component';
+import { authGuardGuard } from './auth/auth-guard.guard';
 
 export const routes: Routes = [
     {
@@ -40,6 +43,15 @@ export const routes: Routes = [
         component: ReservationDetailComponent,
         resolve: {
           reservation: reservationDetailResolver
+        }
+      },
+      {
+        path: 'login',
+        component: LoginComponent
+      },
+      {
+        path: 'cinema-attendant',
+        component: CinemaAttendantComponent,
+        canActivate: [authGuardGuard]
       }
-    }
 ];

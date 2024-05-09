@@ -48,3 +48,7 @@ VALUES
     (1, 20.5, 'WeronikaZ', ''),
     (2, 41.0, 'PatrycjaK', '');
 
+INSERT INTO user_cinema_attendant(id, username, password)
+VALUES
+    (1, 'marek', '123');
+

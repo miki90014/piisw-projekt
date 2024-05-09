@@ -101,6 +101,18 @@
                 <constraints nullable="false" foreignKeyName="fk_reservation_id" references="reservation(id)"/>
             </column>
         </createTable>
+        <createTable tableName="user_cinema_attendant">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="username" type="varchar(50)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+
+            <column name="password" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
     </changeSet>
     <include file="testdata.xml" relativeToChangelogFile="true" context="dev" />
 </databaseChangeLog>
