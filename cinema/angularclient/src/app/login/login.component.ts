@@ -12,13 +12,21 @@ import { Router } from '@angular/router';
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
+  
   login: Login
+  private loginUrl:string;
+
   constructor(private http: HttpClient, private router: Router){
     this.login = new Login()
+    this.loginUrl = 'http://localhost:8080/login';
   }
 
-  onLogin() {
-    this.http.post('https://freeapi.gerasim.in/api/User/Login', this.login).subscribe((res:any)=>{
+  onLogin(): void {
+    if (this.login.password === '' || this.login.username === '') {
+      alert("You must fill form")
+    }
+    console.log(this.loginUrl, this.login)
+    this.http.post(this.loginUrl, this.login).subscribe((res:any)=>{
       if(res.result) {
         alert("Login Success");
         localStorage.setItem('angular17token', res.data.token)
