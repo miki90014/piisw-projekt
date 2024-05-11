@@ -11,8 +11,8 @@ public class UserController {
 
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody LoginDAO loginRequest) {
+        System.out.println("Testtest");
         if (userService.authenticate(loginRequest.getUsername(), loginRequest.getPassword())) {
-            // Successful authentication
             return ResponseEntity.ok("Login successful!");
         } else {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid credentials");
