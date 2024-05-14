@@ -18,7 +18,7 @@ jobs:
         with:
           java-version: 21
       - name: Build with Maven
-        run: mvn test -B -Dmaven.test.failure.ignore=true
+        run: cd cinema; mvn test -B -Dmaven.test.failure.ignore=true
       - name: Publish Test Report
         uses: scacap/action-surefire-report@v1
         with:
