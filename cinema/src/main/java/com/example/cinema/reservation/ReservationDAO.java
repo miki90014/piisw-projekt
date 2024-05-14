@@ -1,6 +1,7 @@
 package com.example.cinema.reservation;
 
 import com.example.cinema.availableSeats.AvailableSeats;
+import com.example.cinema.availableSeats.SeatStatus;
 import lombok.Data;
 
 import java.util.ArrayList;

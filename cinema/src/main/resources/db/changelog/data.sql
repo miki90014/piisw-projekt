@@ -26,7 +26,7 @@ VALUES
 INSERT INTO available_seats(id, seance_id, seat_id, seat_status, price)
 VALUES
     (1, 1, 1, 'RESERVED', 20.5),
-    (2, 1, 2, 'EMPTY', 20.5),
+    (2, 1, 2, 'EXPIRED', 20.5),
     (3, 1, 3, 'EMPTY', 20.5),
     (4, 1, 4, 'VALIDATED', 20.5),
     (5, 1, 5, 'RESERVED', 24),
@@ -45,6 +45,18 @@ VALUES
 
 INSERT INTO reservation(id, total_price, person_data, ticket)
 VALUES
-    (1, 20.5, 'WeronikaZ', ''),
-    (2, 41.0, 'PatrycjaK', '');
+    (1, 20.5, 'WeronikaZ', 'unique-ticket-1'),
+    (2, 41.0, 'PatrycjaK', 'unique-ticket-2'),
+    (3, 41.0, 'Blablabla', 'unique-ticket-3');
+
+INSERT INTO list_of_reserved_seats(id, reserved_seat_id, reservation_id)
+VALUES
+    (1, 1, 1),
+    (2, 5, 1),
+    (3, 4, 2),
+    (4, 2, 3);
+
+INSERT INTO user_cinema_attendant(id, username, password)
+VALUES
+    (1, 'marek', '123');
 

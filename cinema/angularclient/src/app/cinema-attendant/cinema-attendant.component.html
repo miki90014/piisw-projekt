@@ -1,0 +1,21 @@
+<form>
+    <div class="form-group">
+        <label>ticket:</label>
+        <input type="text" [(ngModel)]="ticketInput" name="ticket" required class="form-control">
+    </div>
+    <br>
+    <div class="form-actions flex justify-content-center">
+        <button type="submit" class="btn btn-success" (click)="checkTicket()">Save</button>
+    </div>
+</form>
+<div *ngIf="reservation !== undefined">
+    <h2 *ngIf="reservation.ticket === 'UNFOUNDED'">Reservation INVALID</h2>
+    <div *ngIf="reservation.ticket !== 'UNFOUNDED'">
+        <h2>Reservation: </h2>
+        <p><b>Reserved Seats:</b></p>
+        @for (seat of reservation.reservedSeats; track seat.id) {
+            <p>Row: {{seat.seat.seatRow}} Number: {{seat.seat.number}} Status: {{seat.seatStatus}}</p>
+        }
+    </div>
+</div>
+

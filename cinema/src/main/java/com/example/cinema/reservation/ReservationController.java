@@ -5,6 +5,8 @@ import com.example.cinema.availableSeats.AvailableSeats;
 import com.example.cinema.availableSeats.AvailableSeatsRepository;
 import com.example.cinema.availableSeats.SeatStatus;
 import com.example.cinema.movie.Movie;
+import com.example.cinema.user.LoginDAO;
+import com.example.cinema.user.UserService;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.WriterException;
 import com.google.zxing.common.BitMatrix;
@@ -22,11 +24,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
-import java.io.File;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -44,13 +42,13 @@ public class ReservationController {
     public List<Reservation> getReservations() {return (List<Reservation>) reservationRepository.findAll();}
 
     @GetMapping("/tickets/{imageName}")
-    public ResponseEntity<byte[]> getImage(@PathVariable String imageName) throws IOException {
-        Path imagePath = Paths.get("qr-ticket/"+imageName+".png");
-        UrlResource resource = new UrlResource(imagePath.toUri());
-        if (!resource.exists()) {
-            return ResponseEntity.notFound().build();
-        }
-        byte[] imageBytes = Files.readAllBytes(Path.of(resource.getURI()));
+    public ResponseEntity<byte[]> getImage(@PathVariable String imageName) throws IOException, WriterException {
+        QRCodeWriter qrCodeWriter = new QRCodeWriter();
+        BitMatrix bitMatrix = qrCodeWriter.encode(imageName, BarcodeFormat.QR_CODE, 150, 150);
+        BufferedImage bufferedImage = MatrixToImageWriter.toBufferedImage(bitMatrix);
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        ImageIO.write(bufferedImage, "png", baos);
+        byte[] imageBytes = baos.toByteArray();
         MediaType mediaType = MediaType.IMAGE_PNG;
         return ResponseEntity.ok().contentType(mediaType).body(imageBytes);
     }
@@ -78,17 +76,13 @@ public class ReservationController {
 
         return reservationDAO;
     }
+
     @PostMapping("/reservations")
     public Long createReservation(@RequestBody ReservationDAO reservationDAO) throws WriterException, IOException {
         Reservation reservation = new Reservation();
         reservation.setTotalPrice(reservationDAO.getTotalPrice());
         reservation.setPersonData(reservationDAO.getPersonData());
-        QRCodeWriter qrCodeWriter = new QRCodeWriter();
         UUID uuid = UUID.randomUUID();
-        BitMatrix bitMatrix = qrCodeWriter.encode(String.valueOf(uuid), BarcodeFormat.QR_CODE, 150, 150);
-        BufferedImage bufferedImage = MatrixToImageWriter.toBufferedImage(bitMatrix);
-        File outputfile = new File("qr-ticket/"+uuid+".png");
-        ImageIO.write(bufferedImage, "png", outputfile);
         reservation.setTicket(String.valueOf(uuid));
         reservationRepository.save(reservation);
         for (AvailableSeats availableSeat : reservationDAO.getReservedSeats()){
