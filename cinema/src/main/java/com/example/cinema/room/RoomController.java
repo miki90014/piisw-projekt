@@ -17,7 +17,9 @@ public class RoomController {
     private final RoomRepository roomRepository;
 
     @GetMapping("/rooms")
-    public List<Room> getRooms() { return (List<Room>) roomRepository.findAll();}
+    public List<Room> getRooms() {
+        return (List<Room>) roomRepository.findAll();
+    }
 
     @GetMapping("/rooms/{id}")
     public Room getRoomsById(@PathVariable("id") Long id) {

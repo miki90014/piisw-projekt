@@ -21,7 +21,7 @@ public class SeatController {
         List<Seat> seats = seatRepository.findByRoomId(roomId);
         if (!seats.isEmpty()) {
             return seats;
-        }else{
+        } else {
             return null; //obsługa błedów, jak inaczej?
         }
     }

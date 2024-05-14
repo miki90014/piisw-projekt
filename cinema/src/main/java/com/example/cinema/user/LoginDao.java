@@ -3,7 +3,7 @@ package com.example.cinema.user;
 import lombok.Data;
 
 @Data
-public class LoginDAO {
+public class LoginDao {
     String username;
     String password;
 }

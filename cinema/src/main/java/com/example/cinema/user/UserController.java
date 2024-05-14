@@ -1,8 +1,8 @@
 package com.example.cinema.user;
 
-import com.example.cinema.availableSeats.AvailableSeats;
-import com.example.cinema.availableSeats.AvailableSeatsRepository;
-import com.example.cinema.availableSeats.SeatStatus;
+import com.example.cinema.availableseats.AvailableSeats;
+import com.example.cinema.availableseats.AvailableSeatsRepository;
+import com.example.cinema.availableseats.SeatStatus;
 import com.example.cinema.reservation.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,7 +27,7 @@ public class UserController {
     private final ListOfReservedSeatsRepository listOfReservedSeatsRepository;
 
     @PostMapping("/login")
-    public ResponseEntity<?> login(@RequestBody LoginDAO loginRequest) {
+    public ResponseEntity<?> login(@RequestBody LoginDao loginRequest) {
         if (userService.authenticate(loginRequest.getUsername(), loginRequest.getPassword())) {
             return ResponseEntity.ok("simple-token");
         } else {
@@ -36,40 +36,39 @@ public class UserController {
     }
 
     @GetMapping("/user/check")
-    public ReservationDAO checkReservation(@RequestParam String ticket) {
-        ReservationDAO reservationDAO = new ReservationDAO();
-        reservationDAO.setTicket("UNFOUNDED");
+    public ReservationDao checkReservation(@RequestParam String ticket) {
+        ReservationDao reservationDao = new ReservationDao();
+        reservationDao.setTicket("UNFOUNDED");
 
         Optional<Reservation> optionalReservation = reservationRepository.findByTicket(ticket);
         if (optionalReservation.isEmpty()) {
-            return reservationDAO;
+            return reservationDao;
         }
 
         Reservation reservation = optionalReservation.get();
 
-        reservationDAO.setPersonData(reservation.getPersonData());
-        reservationDAO.setTotalPrice(reservation.getTotalPrice());
-        reservationDAO.setTicket(reservation.getTicket());
+        reservationDao.setPersonData(reservation.getPersonData());
+        reservationDao.setTotalPrice(reservation.getTotalPrice());
+        reservationDao.setTicket(reservation.getTicket());
 
         List<ListOfReservedSeats> listOfReservedSeats = listOfReservedSeatsRepository.findByReservationId(reservation.getId());
         if (listOfReservedSeats.isEmpty()) {
-            return reservationDAO;
+            return reservationDao;
         }
 
         ArrayList<AvailableSeats> availableSeatsArrayList = new ArrayList<>();
-        for (ListOfReservedSeats reservedSeats: listOfReservedSeats){
+        for (ListOfReservedSeats reservedSeats : listOfReservedSeats) {
             AvailableSeats availableSeats = reservedSeats.getReservedSeat();
             if (availableSeats.getSeatStatus() == SeatStatus.RESERVED) {
                 availableSeats.setSeatStatus(SeatStatus.VALIDATED);
                 availableSeatsRepository.save(availableSeats);
-            }
-            else if(availableSeats.getSeatStatus() == SeatStatus.VALIDATED) {
+            } else if (availableSeats.getSeatStatus() == SeatStatus.VALIDATED) {
                 availableSeats.setSeatStatus(SeatStatus.ALREADY_VALIDATED);
             }
             availableSeatsArrayList.add(reservedSeats.getReservedSeat());
         }
 
-        reservationDAO.setReservedSeats(availableSeatsArrayList);
-        return  reservationDAO;
+        reservationDao.setReservedSeats(availableSeatsArrayList);
+        return  reservationDao;
     }
 }

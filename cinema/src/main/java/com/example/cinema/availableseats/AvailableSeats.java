@@ -1,4 +1,4 @@
-package com.example.cinema.availableSeats;
+package com.example.cinema.availableseats;
 
 import com.example.cinema.seance.Seance;
 import com.example.cinema.seat.Seat;
@@ -7,7 +7,6 @@ import lombok.Getter;
 import lombok.Setter;
 
 import static jakarta.persistence.FetchType.EAGER;
-import static jakarta.persistence.FetchType.LAZY;
 
 @Entity
 @Setter
