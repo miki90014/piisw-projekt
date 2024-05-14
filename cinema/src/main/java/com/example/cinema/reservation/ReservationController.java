@@ -5,6 +5,8 @@ import com.example.cinema.availableSeats.AvailableSeats;
 import com.example.cinema.availableSeats.AvailableSeatsRepository;
 import com.example.cinema.availableSeats.SeatStatus;
 import com.example.cinema.movie.Movie;
+import com.example.cinema.user.LoginDAO;
+import com.example.cinema.user.UserService;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.WriterException;
 import com.google.zxing.common.BitMatrix;

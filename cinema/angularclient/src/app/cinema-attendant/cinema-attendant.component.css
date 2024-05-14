@@ -1,0 +1,59 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-control {
+    background-color: black;
+    color: white;
+    border: 1px solid white;
+    width: 45%;
+}
+
+.btn-success {
+    --bs-btn-bg: rgb(190, 162, 40);
+    --bs-btn-disabled-bg: rgb(190, 162, 40, 0.5);
+    --bs-btn-disabled-border-color: white;
+    --bs-btn-border-color: white;
+    --bs-btn-hover-bg: rgba(255, 187, 0, 0.247);
+    --bs-btn-hover-border-color: white;
+    --bs-btn-active-bg: rgb(190, 162, 40);
+    --bs-btn-active-border-color: white;
+    margin: 10px;
+}
+
+.btn-cancel {
+    --bs-btn-hover-border-color: white;
+    --bs-btn-border-color: white;
+    --bs-btn-hover-bg: rgb(255, 255, 255, 0.2);
+    --bs-btn-color: white;
+}
+
+input[type='checkbox'] {
+    accent-color: yellow;
+}
+
+.btn {
+    width: 45%;
+}
+
+.btn-success{
+    margin: 0;
+}
+
+.center {
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+}

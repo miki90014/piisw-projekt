@@ -87,7 +87,7 @@
                 <constraints nullable="false"/>
             </column>
             <column name="ticket" type="varchar(255)">
-                <constraints nullable="true"/>
+                <constraints nullable="true" unique="true"/>
             </column>
         </createTable>
         <createTable tableName="list_of_reserved_seats">

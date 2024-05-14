@@ -18,5 +18,6 @@ public class Reservation {
     private Long id;
     private Double totalPrice;
     private String personData;
+    @Column(unique=true)
     private String ticket;
 }

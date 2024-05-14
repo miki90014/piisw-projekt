@@ -26,15 +26,18 @@ export class LoginComponent {
       alert("You must fill form")
     }
     console.log(this.loginUrl, this.login)
-    this.http.post(this.loginUrl, this.login).subscribe((res:any)=>{
-      if(res.result) {
+    this.http.post(this.loginUrl, this.login, { responseType: 'text' }).subscribe((token: string)=>{
+        console.log('Token received:', token);
         alert("Login Success");
-        localStorage.setItem('angular17token', res.data.token)
-        this.router.navigateByUrl('/cinema-attendent')
-      } else {
-        alert(res.message)
-      }
-    })
+        localStorage.setItem('token', token);
+        this.router.navigateByUrl('/cinema-attendant')
+        //TODO: Pamiętać aby usuwać token z localStroage przy wylogowaniu localStorage.removeItem(this.tokenKey);
+      },
+      (error) => {
+        alert("Login Failed");
+        console.error('Login failed:', error);
+      })
+    
   }
 
 }

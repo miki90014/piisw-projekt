@@ -10,6 +10,7 @@ import { reservationDetailResolver} from './resolver/reservation-detail.resolver
 import { LoginComponent } from './login/login.component';
 import { CinemaAttendantComponent } from './cinema-attendant/cinema-attendant.component';
 import { authGuardGuard } from './auth/auth-guard.guard';
+import { cinemaAttendantResolver } from './resolver/cinema-attendant.resolver';
 
 export const routes: Routes = [
     {
@@ -52,6 +53,10 @@ export const routes: Routes = [
       {
         path: 'cinema-attendant',
         component: CinemaAttendantComponent,
-        canActivate: [authGuardGuard]
+        canActivate: [authGuardGuard],
+        resolve: {
+          reservation: cinemaAttendantResolver
+        }
       }
+
 ];
