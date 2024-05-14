@@ -1,6 +1,6 @@
 package com.example.cinema.reservation;
 
-import com.example.cinema.availableSeats.AvailableSeats;
+import com.example.cinema.availableseats.AvailableSeats;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;

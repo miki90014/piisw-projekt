@@ -1,4 +1,4 @@
-package com.example.cinema.availableSeats;
+package com.example.cinema.availableseats;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -14,16 +14,19 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class AvailableSeatsController {
     private final AvailableSeatsRepository availableSeatsRepository;
+
     @GetMapping ("/available_seats")
-    public List<AvailableSeats> getAvailableSeats() { return (List<AvailableSeats>) availableSeatsRepository.findAll(); }
+    public List<AvailableSeats> getAvailableSeats() {
+        return (List<AvailableSeats>) availableSeatsRepository.findAll();
+    }
 
     @GetMapping("/available_seats/{id}")
     public AvailableSeats getAvailableSeatsById(@PathVariable ("id") Long id) {
-     Optional<AvailableSeats> availableSeats = availableSeatsRepository.findById(id);
-     if (availableSeats.isPresent()) {
-         return availableSeats.get();
+        Optional<AvailableSeats> availableSeats = availableSeatsRepository.findById(id);
+        if (availableSeats.isPresent()) {
+            return availableSeats.get();
         }
-     return null;
+        return null;
     }
 
     @GetMapping("/available_seats/seance/{id}")

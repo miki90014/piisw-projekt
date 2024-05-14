@@ -1,26 +1,17 @@
 package com.example.cinema.reservation;
 
-
-import com.example.cinema.availableSeats.AvailableSeats;
-import com.example.cinema.availableSeats.AvailableSeatsRepository;
-import com.example.cinema.availableSeats.SeatStatus;
-import com.example.cinema.movie.Movie;
-import com.example.cinema.user.LoginDAO;
-import com.example.cinema.user.UserService;
+import com.example.cinema.availableseats.AvailableSeats;
+import com.example.cinema.availableseats.AvailableSeatsRepository;
+import com.example.cinema.availableseats.SeatStatus;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.WriterException;
 import com.google.zxing.common.BitMatrix;
 import com.google.zxing.qrcode.QRCodeWriter;
-import jakarta.annotation.Resource;
 import lombok.RequiredArgsConstructor;
 import com.google.zxing.client.j2se.MatrixToImageWriter;
-import org.springframework.core.io.ClassPathResource;
-import org.springframework.core.io.UrlResource;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
@@ -39,7 +30,9 @@ public class ReservationController {
     private final ListOfReservedSeatsRepository listOfReservedSeatsRepository;
 
     @GetMapping("/reservations")
-    public List<Reservation> getReservations() {return (List<Reservation>) reservationRepository.findAll();}
+    public List<Reservation> getReservations() {
+        return (List<Reservation>) reservationRepository.findAll();
+    }
 
     @GetMapping("/tickets/{imageName}")
     public ResponseEntity<byte[]> getImage(@PathVariable String imageName) throws IOException, WriterException {
@@ -54,38 +47,38 @@ public class ReservationController {
     }
 
     @GetMapping("/reservations/{id}")
-    public ReservationDAO getReservationById(@PathVariable("id") Long id) throws InterruptedException {
+    public ReservationDao getReservationById(@PathVariable("id") Long id) throws InterruptedException {
         Optional<Reservation> optionalReservation = reservationRepository.findById(id);
         if (optionalReservation.isEmpty()) {
             return null;
         }
         Reservation reservation = optionalReservation.get();
-        ReservationDAO reservationDAO = new ReservationDAO();
-        reservationDAO.setPersonData(reservation.getPersonData());
-        reservationDAO.setTotalPrice(reservation.getTotalPrice());
-        reservationDAO.setTicket(reservation.getTicket());
+        ReservationDao reservationDao = new ReservationDao();
+        reservationDao.setPersonData(reservation.getPersonData());
+        reservationDao.setTotalPrice(reservation.getTotalPrice());
+        reservationDao.setTicket(reservation.getTicket());
         List<ListOfReservedSeats> listOfReservedSeats = listOfReservedSeatsRepository.findByReservationId(id);
         if (listOfReservedSeats.isEmpty()) {
             return null;
         }
         ArrayList<AvailableSeats> availableSeatsArrayList = new ArrayList<>();
-        for (ListOfReservedSeats reservedSeats: listOfReservedSeats){
+        for (ListOfReservedSeats reservedSeats : listOfReservedSeats) {
             availableSeatsArrayList.add(reservedSeats.getReservedSeat());
         }
-        reservationDAO.setReservedSeats(availableSeatsArrayList);
+        reservationDao.setReservedSeats(availableSeatsArrayList);
 
-        return reservationDAO;
+        return reservationDao;
     }
 
     @PostMapping("/reservations")
-    public Long createReservation(@RequestBody ReservationDAO reservationDAO) throws WriterException, IOException {
+    public Long createReservation(@RequestBody ReservationDao reservationDao) throws WriterException, IOException {
         Reservation reservation = new Reservation();
-        reservation.setTotalPrice(reservationDAO.getTotalPrice());
-        reservation.setPersonData(reservationDAO.getPersonData());
+        reservation.setTotalPrice(reservationDao.getTotalPrice());
+        reservation.setPersonData(reservationDao.getPersonData());
         UUID uuid = UUID.randomUUID();
         reservation.setTicket(String.valueOf(uuid));
         reservationRepository.save(reservation);
-        for (AvailableSeats availableSeat : reservationDAO.getReservedSeats()){
+        for (AvailableSeats availableSeat : reservationDao.getReservedSeats()) {
             ListOfReservedSeats listOfReservedSeats = new ListOfReservedSeats();
             listOfReservedSeats.setReservedSeat(availableSeat);
             listOfReservedSeats.setReservation(reservation);

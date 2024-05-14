@@ -21,7 +21,7 @@ public class SeanceController {
         List<Seance> seances = seanceRepository.findByMovieId(movieId);
         if (!seances.isEmpty()) {
             return seances;
-        }else{
+        } else {
             return null; //obsługa błedów, jak inaczej?
         }
     }

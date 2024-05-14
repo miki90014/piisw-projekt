@@ -1,4 +1,4 @@
-package com.example.cinema.availableSeats;
+package com.example.cinema.availableseats;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
