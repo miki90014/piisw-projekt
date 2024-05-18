@@ -1,5 +1,5 @@
 *{
-    
+
     color:rgb(255, 255, 255);
 }
 .card{
@@ -11,3 +11,16 @@
 .container{
     margin-left: 30px;
 }
+.login-link {
+  margin-top: 10px;
+  color: white;
+  text-decoration: none;
+}
+.login-link:hover {
+    color: rgb(255, 166, 0);
+}
+.login-link:active{
+  transform: translateY(2px);
+  color: rgba(255, 208, 0);
+}
+

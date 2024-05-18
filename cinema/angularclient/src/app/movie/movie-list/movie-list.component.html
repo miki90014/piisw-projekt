@@ -1,22 +1,21 @@
 <article class="m-3">
-    <h1>What's on</h1>  
-    <div id="main-div">
+  <div class="d-flex justify-content-between align-items-center">
+    <h1>What's on</h1>
+    <a href="http://localhost:4200/login" class="btn btn-link login-link">Log In as Cinema Attendant</a>
+  </div>
+  <div id="main-div">
     <section class="d-flex flex-column gap-2">
-      
       @for (movie of movies; track movie.id) {
-        
-        <div class="card">
+      <div class="card">
           <a [routerLink]="[movie.id]">
-            <h2>{{movie.movieName}}</h2>
-            <div class="container">
-              <img [src]="[movie.movieThumbnailUrl]" alt="Example Image">
-              <p>{{movie.movieDescription}}</p>
-          </div>
-          </a>
-          </div>
-        
+              <h2>{{movie.movieName}}</h2>
+                        <div class="container">
+                            <img [src]="[movie.movieThumbnailUrl]" alt="Example Image">
+                            <p>{{movie.movieDescription}}</p>
+                        </div>
+                    </a>
+                </div>
       }
-    
     </section>
   </div>
-  </article>
+</article>

@@ -31,12 +31,48 @@
               </label>
               <input class="form-check-input" (change)="updateTotalPrice($event, seats.get('A3')?.seatObject)" type="checkbox" [disabled]="seats.get('A3')?.seatStatus!== 'EMPTY'" >
             </div>
-            <div class="seat" [ngStyle]="{'background-color': seats.get('A4') ?.seatStatus!== 'EMPTY' ? 'red' : ''}">
+            <div class="seat cinema" [ngStyle]="{'background-color': seats.get('A4') ?.seatStatus!== 'EMPTY' ? 'red' : ''}">
               <label class="form-check-label" [for]="'seat_' + seats.get('A4')?.seat_id">
                 A4 price: {{ seats.get('A4')?.price }}
               </label>
               <input class="form-check-input" (change)="updateTotalPrice($event, seats.get('A4')?.seatObject)" type="checkbox" [disabled]="seats.get('A4')?.seatStatus!== 'EMPTY'" >
             </div>
+            <div class="seat" [ngStyle]="{'background-color': seats.get('A5') ?.seatStatus!== 'EMPTY' ? 'red' : ''}">
+              <label class="form-check-label" [for]="'seat_' + seats.get('A5')?.seat_id">
+                A5 price: {{ seats.get('A5')?.price }}
+              </label>
+            <input class="form-check-input" (change)="updateTotalPrice($event, seats.get('A5')?.seatObject)" type="checkbox" [disabled]="seats.get('A5')?.seatStatus!== 'EMPTY'" >
+          </div>
+          <div class="seat" [ngStyle]="{'background-color': seats.get('A6') ?.seatStatus!== 'EMPTY' ? 'red' : ''}">
+            <label class="form-check-label" [for]="'seat_' + seats.get('A6')?.seat_id">
+              A6 price: {{ seats.get('A6')?.price }}
+            </label>
+            <input class="form-check-input" (change)="updateTotalPrice($event, seats.get('A6')?.seatObject)" type="checkbox" [disabled]="seats.get('A6')?.seatStatus!== 'EMPTY'" >
+          </div>
+          <div class="seat" [ngStyle]="{'background-color': seats.get('A7') ?.seatStatus!== 'EMPTY' ? 'red' : ''}">
+            <label class="form-check-label" [for]="'seat_' + seats.get('A7')?.seat_id">
+              A7 price: {{ seats.get('A7')?.price }}
+            </label>
+            <input class="form-check-input" (change)="updateTotalPrice($event, seats.get('A7')?.seatObject)" type="checkbox" [disabled]="seats.get('A7')?.seatStatus!== 'EMPTY'" >
+          </div>
+          <div class="seat" [ngStyle]="{'background-color': seats.get('A8') ?.seatStatus!== 'EMPTY' ? 'red' : ''}">
+            <label class="form-check-label" [for]="'seat_' + seats.get('A8')?.seat_id">
+              A8 price: {{ seats.get('A8')?.price }}
+            </label>
+            <input class="form-check-input" (change)="updateTotalPrice($event, seats.get('A8')?.seatObject)" type="checkbox" [disabled]="seats.get('A8')?.seatStatus!== 'EMPTY'" >
+          </div>
+          <div class="seat" [ngStyle]="{'background-color': seats.get('A9') ?.seatStatus!== 'EMPTY' ? 'red' : ''}">
+            <label class="form-check-label" [for]="'seat_' + seats.get('A9')?.seat_id">
+              A9 price: {{ seats.get('A9')?.price }}
+            </label>
+            <input class="form-check-input" (change)="updateTotalPrice($event, seats.get('A9')?.seatObject)" type="checkbox" [disabled]="seats.get('A9')?.seatStatus!== 'EMPTY'" >
+          </div>
+          <div class="seat" [ngStyle]="{'background-color': seats.get('A10') ?.seatStatus!== 'EMPTY' ? 'red' : ''}">
+            <label class="form-check-label" [for]="'seat_' + seats.get('A10')?.seat_id">
+              A10 price: {{ seats.get('A10')?.price }}
+            </label>
+            <input class="form-check-input" (change)="updateTotalPrice($event, seats.get('A10')?.seatObject)" type="checkbox" [disabled]="seats.get('A10')?.seatStatus!== 'EMPTY'" >
+          </div>
         </div>
         <div class="row">
           <div class="seat" [ngStyle]="{'background-color': seats.get('B1') ?.seatStatus!== 'EMPTY' ? 'red' : ''}">
@@ -63,7 +99,168 @@
             </label>
             <input class="form-check-input" (change)="updateTotalPrice($event, seats.get('B4')?.seatObject)" type="checkbox" [disabled]="seats.get('B4')?.seatStatus!== 'EMPTY'" >
           </div>
+          <div class="seat" [ngStyle]="{'background-color': seats.get('B5') ?.seatStatus!== 'EMPTY' ? 'red' : ''}">
+            <label class="form-check-label" [for]="'seat_' + seats.get('B5')?.seat_id">
+              B5 price: {{ seats.get('B5')?.price }}
+            </label>
+            <input class="form-check-input" (change)="updateTotalPrice($event, seats.get('B5')?.seatObject)" type="checkbox" [disabled]="seats.get('B5')?.seatStatus!== 'EMPTY'" >
+          </div>
+          <div class="seat" [ngStyle]="{'background-color': seats.get('B6') ?.seatStatus!== 'EMPTY' ? 'red' : ''}">
+            <label class="form-check-label" [for]="'seat_' + seats.get('B6')?.seat_id">
+              B6 price: {{ seats.get('B6')?.price }}
+            </label>
+            <input class="form-check-input" (change)="updateTotalPrice($event, seats.get('B6')?.seatObject)" type="checkbox" [disabled]="seats.get('B6')?.seatStatus!== 'EMPTY'" >
+          </div>
+          <div class="seat" [ngStyle]="{'background-color': seats.get('B7') ?.seatStatus!== 'EMPTY' ? 'red' : ''}">
+            <label class="form-check-label" [for]="'seat_' + seats.get('B7')?.seat_id">
+              B7 price: {{ seats.get('B7')?.price }}
+            </label>
+            <input class="form-check-input" (change)="updateTotalPrice($event, seats.get('B7')?.seatObject)" type="checkbox" [disabled]="seats.get('B7')?.seatStatus!== 'EMPTY'" >
+          </div>
+          <div class="seat" [ngStyle]="{'background-color': seats.get('B8') ?.seatStatus!== 'EMPTY' ? 'red' : ''}">
+            <label class="form-check-label" [for]="'seat_' + seats.get('B8')?.seat_id">
+              B8 price: {{ seats.get('B8')?.price }}
+            </label>
+            <input class="form-check-input" (change)="updateTotalPrice($event, seats.get('B8')?.seatObject)" type="checkbox" [disabled]="seats.get('B8')?.seatStatus!== 'EMPTY'" >
+          </div>
+          <div class="seat" [ngStyle]="{'background-color': seats.get('B9') ?.seatStatus!== 'EMPTY' ? 'red' : ''}">
+            <label class="form-check-label" [for]="'seat_' + seats.get('B9')?.seat_id">
+              B9 price: {{ seats.get('B9')?.price }}
+            </label>
+            <input class="form-check-input" (change)="updateTotalPrice($event, seats.get('B9')?.seatObject)" type="checkbox" [disabled]="seats.get('B9')?.seatStatus!== 'EMPTY'" >
+          </div>
+          <div class="seat" [ngStyle]="{'background-color': seats.get('B10') ?.seatStatus!== 'EMPTY' ? 'red' : ''}">
+            <label class="form-check-label" [for]="'seat_' + seats.get('B10')?.seat_id">
+              B10 price: {{ seats.get('B10')?.price }}
+            </label>
+            <input class="form-check-input" (change)="updateTotalPrice($event, seats.get('B10')?.seatObject)" type="checkbox" [disabled]="seats.get('B10')?.seatStatus!== 'EMPTY'" >
+          </div>
         </div>
+        <div class="row">
+          <div class="seat" [ngStyle]="{'background-color': seats.get('C1') ?.seatStatus!== 'EMPTY' ? 'red' : ''}">
+            <label class="form-check-label" [for]="'seat_' + seats.get('C1')?.seat_id">
+              C1 price: {{ seats.get('C1')?.price }}
+            </label>
+            <input class="form-check-input" (change)="updateTotalPrice($event, seats.get('C1')?.seatObject)" type="checkbox" [disabled]="seats.get('C1')?.seatStatus!== 'EMPTY'" >
+          </div>
+          <div class="seat" [ngStyle]="{'background-color': seats.get('C2') ?.seatStatus!== 'EMPTY' ? 'red' : ''}">
+            <label class="form-check-label" [for]="'seat_' + seats.get('C2')?.seat_id">
+              C2 price: {{ seats.get('C2')?.price }}
+            </label>
+            <input class="form-check-input" (change)="updateTotalPrice($event, seats.get('C2')?.seatObject)" type="checkbox" [disabled]="seats.get('C2')?.seatStatus!== 'EMPTY'" >
+          </div>
+          <div class="seat" [ngStyle]="{'background-color': seats.get('C3') ?.seatStatus!== 'EMPTY' ? 'red' : ''}">
+            <label class="form-check-label" [for]="'seat_' + seats.get('C3')?.seat_id">
+              C3 price: {{ seats.get('C3')?.price }}
+            </label>
+            <input class="form-check-input" (change)="updateTotalPrice($event, seats.get('C3')?.seatObject)" type="checkbox" [disabled]="seats.get('C3')?.seatStatus!== 'EMPTY'" >
+          </div>
+          <div class="seat" [ngStyle]="{'background-color': seats.get('C4') ?.seatStatus!== 'EMPTY' ? 'red' : ''}">
+            <label class="form-check-label" [for]="'seat_' + seats.get('C4')?.seat_id">
+              C4 price: {{ seats.get('C4')?.price }}
+            </label>
+            <input class="form-check-input" (change)="updateTotalPrice($event, seats.get('C4')?.seatObject)" type="checkbox" [disabled]="seats.get('C4')?.seatStatus!== 'EMPTY'" >
+          </div>
+          <div class="seat" [ngStyle]="{'background-color': seats.get('C5') ?.seatStatus!== 'EMPTY' ? 'red' : ''}">
+            <label class="form-check-label" [for]="'seat_' + seats.get('C5')?.seat_id">
+              C5 price: {{ seats.get('C5')?.price }}
+            </label>
+            <input class="form-check-input" (change)="updateTotalPrice($event, seats.get('C5')?.seatObject)" type="checkbox" [disabled]="seats.get('C5')?.seatStatus!== 'EMPTY'" >
+          </div>
+          <div class="seat" [ngStyle]="{'background-color': seats.get('C6') ?.seatStatus!== 'EMPTY' ? 'red' : ''}">
+            <label class="form-check-label" [for]="'seat_' + seats.get('C6')?.seat_id">
+              C6 price: {{ seats.get('C6')?.price }}
+            </label>
+            <input class="form-check-input" (change)="updateTotalPrice($event, seats.get('C6')?.seatObject)" type="checkbox" [disabled]="seats.get('C6')?.seatStatus!== 'EMPTY'" >
+          </div>
+          <div class="seat" [ngStyle]="{'background-color': seats.get('C7') ?.seatStatus!== 'EMPTY' ? 'red' : ''}">
+            <label class="form-check-label" [for]="'seat_' + seats.get('C7')?.seat_id">
+              C7 price: {{ seats.get('C7')?.price }}
+            </label>
+            <input class="form-check-input" (change)="updateTotalPrice($event, seats.get('C7')?.seatObject)" type="checkbox" [disabled]="seats.get('C7')?.seatStatus!== 'EMPTY'" >
+          </div>
+          <div class="seat" [ngStyle]="{'background-color': seats.get('C8') ?.seatStatus!== 'EMPTY' ? 'red' : ''}">
+            <label class="form-check-label" [for]="'seat_' + seats.get('C8')?.seat_id">
+              C8 price: {{ seats.get('C8')?.price }}
+            </label>
+            <input class="form-check-input" (change)="updateTotalPrice($event, seats.get('C8')?.seatObject)" type="checkbox" [disabled]="seats.get('C8')?.seatStatus!== 'EMPTY'" >
+          </div>
+          <div class="seat" [ngStyle]="{'background-color': seats.get('C9') ?.seatStatus!== 'EMPTY' ? 'red' : ''}">
+            <label class="form-check-label" [for]="'seat_' + seats.get('C9')?.seat_id">
+              C9 price: {{ seats.get('C9')?.price }}
+            </label>
+            <input class="form-check-input" (change)="updateTotalPrice($event, seats.get('C9')?.seatObject)" type="checkbox" [disabled]="seats.get('C9')?.seatStatus!== 'EMPTY'" >
+          </div>
+          <div class="seat" [ngStyle]="{'background-color': seats.get('C10') ?.seatStatus!== 'EMPTY' ? 'red' : ''}">
+            <label class="form-check-label" [for]="'seat_' + seats.get('C10')?.seat_id">
+              C10 price: {{ seats.get('C10')?.price }}
+            </label>
+            <input class="form-check-input" (change)="updateTotalPrice($event, seats.get('C10')?.seatObject)" type="checkbox" [disabled]="seats.get('C10')?.seatStatus!== 'EMPTY'" >
+          </div>
+        </div>
+        <div class="row">
+          <div class="seat" [ngStyle]="{'background-color': seats.get('D1') ?.seatStatus!== 'EMPTY' ? 'red' : ''}">
+            <label class="form-check-label" [for]="'seat_' + seats.get('D1')?.seat_id">
+              D1 price: {{ seats.get('D1')?.price }}
+            </label>
+            <input class="form-check-input" (change)="updateTotalPrice($event, seats.get('D1')?.seatObject)" type="checkbox" [disabled]="seats.get('D1')?.seatStatus!== 'EMPTY'" >
+          </div>
+          <div class="seat" [ngStyle]="{'background-color': seats.get('D2') ?.seatStatus!== 'EMPTY' ? 'red' : ''}">
+            <label class="form-check-label" [for]="'seat_' + seats.get('D2')?.seat_id">
+              D2 price: {{ seats.get('D2')?.price }}
+            </label>
+            <input class="form-check-input" (change)="updateTotalPrice($event, seats.get('D2')?.seatObject)" type="checkbox" [disabled]="seats.get('D2')?.seatStatus!== 'EMPTY'" >
+          </div>
+          <div class="seat" [ngStyle]="{'background-color': seats.get('D3') ?.seatStatus!== 'EMPTY' ? 'red' : ''}">
+            <label class="form-check-label" [for]="'seat_' + seats.get('D3')?.seat_id">
+              D3 price: {{ seats.get('D3')?.price }}
+            </label>
+            <input class="form-check-input" (change)="updateTotalPrice($event, seats.get('D3')?.seatObject)" type="checkbox" [disabled]="seats.get('D3')?.seatStatus!== 'EMPTY'" >
+          </div>
+          <div class="seat" [ngStyle]="{'background-color': seats.get('D4') ?.seatStatus!== 'EMPTY' ? 'red' : ''}">
+            <label class="form-check-label" [for]="'seat_' + seats.get('D4')?.seat_id">
+              D4 price: {{ seats.get('D4')?.price }}
+            </label>
+            <input class="form-check-input" (change)="updateTotalPrice($event, seats.get('D4')?.seatObject)" type="checkbox" [disabled]="seats.get('D4')?.seatStatus!== 'EMPTY'" >
+          </div>
+          <div class="seat" [ngStyle]="{'background-color': seats.get('D5') ?.seatStatus!== 'EMPTY' ? 'red' : ''}">
+            <label class="form-check-label" [for]="'seat_' + seats.get('D5')?.seat_id">
+              D5 price: {{ seats.get('D5')?.price }}
+            </label>
+            <input class="form-check-input" (change)="updateTotalPrice($event, seats.get('D5')?.seatObject)" type="checkbox" [disabled]="seats.get('D5')?.seatStatus!== 'EMPTY'" >
+          </div>
+          <div class="seat" [ngStyle]="{'background-color': seats.get('D6') ?.seatStatus!== 'EMPTY' ? 'red' : ''}">
+            <label class="form-check-label" [for]="'seat_' + seats.get('D6')?.seat_id">
+              D6 price: {{ seats.get('D6')?.price }}
+            </label>
+            <input class="form-check-input" (change)="updateTotalPrice($event, seats.get('D6')?.seatObject)" type="checkbox" [disabled]="seats.get('D6')?.seatStatus!== 'EMPTY'" >
+          </div>
+          <div class="seat" [ngStyle]="{'background-color': seats.get('D7') ?.seatStatus!== 'EMPTY' ? 'red' : ''}">
+            <label class="form-check-label" [for]="'seat_' + seats.get('D7')?.seat_id">
+              D7 price: {{ seats.get('D7')?.price }}
+            </label>
+            <input class="form-check-input" (change)="updateTotalPrice($event, seats.get('D7')?.seatObject)" type="checkbox" [disabled]="seats.get('D7')?.seatStatus!== 'EMPTY'" >
+          </div>
+          <div class="seat" [ngStyle]="{'background-color': seats.get('D8') ?.seatStatus!== 'EMPTY' ? 'red' : ''}">
+            <label class="form-check-label" [for]="'seat_' + seats.get('D8')?.seat_id">
+              D8 price: {{ seats.get('D8')?.price }}
+            </label>
+            <input class="form-check-input" (change)="updateTotalPrice($event, seats.get('D8')?.seatObject)" type="checkbox" [disabled]="seats.get('D8')?.seatStatus!== 'EMPTY'" >
+          </div>
+          <div class="seat" [ngStyle]="{'background-color': seats.get('D9') ?.seatStatus!== 'EMPTY' ? 'red' : ''}">
+            <label class="form-check-label" [for]="'seat_' + seats.get('D9')?.seat_id">
+              D9 price: {{ seats.get('D9')?.price }}
+            </label>
+            <input class="form-check-input" (change)="updateTotalPrice($event, seats.get('D9')?.seatObject)" type="checkbox" [disabled]="seats.get('D9')?.seatStatus!== 'EMPTY'" >
+          </div>
+          <div class="seat" [ngStyle]="{'background-color': seats.get('D10') ?.seatStatus!== 'EMPTY' ? 'red' : ''}">
+            <label class="form-check-label" [for]="'seat_' + seats.get('D10')?.seat_id">
+              D10 price: {{ seats.get('D10')?.price }}
+            </label>
+            <input class="form-check-input" (change)="updateTotalPrice($event, seats.get('D10')?.seatObject)" type="checkbox" [disabled]="seats.get('D10')?.seatStatus!== 'EMPTY'" >
+          </div>
+        </div>
+
       </div>
 
       <div class="form-group">

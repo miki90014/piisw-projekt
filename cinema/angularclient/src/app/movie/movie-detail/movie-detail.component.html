@@ -1,5 +1,9 @@
 <article class="m-3">
+
   <div class="everything">
+    <div class="login-container">
+    <a href="http://localhost:4200/login" class="btn btn-link login-link">Log In as Cinema Attendant</a>
+    </div>
     <div class="container-main">
       <section *ngIf="seances && seances.length > 0" class="d-flex flex-row gap-2">
         <div class="container-1column">
@@ -27,15 +31,15 @@
         </div>
 
 
-        <section class="d-flex flex-column gap-2">
+        <section class="d-flex flex-row gap-2">
           @for (seance of seances; track seance.id) {
+          <a [routerLink]="['../../available_seats', seance.id]">
           <div class="container-time-button">
-            <a [routerLink]="['../../available_seats', seance.id]">
               <div class="container-datetime">
                 <p>{{convert(seance.dateOfSeance)}}</p>
               </div>
-            </a>
-          </div>
+           </div>
+          </a>
           }
         </section>
       </div>
