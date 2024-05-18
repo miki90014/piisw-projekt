@@ -1,59 +1,60 @@
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #f0f0f0;
+.everything {
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
 }
-
-.container {
-    display: flex;
-    flex-direction: column;
-}
-
 .form-control {
-    background-color: black;
-    color: white;
-    border: 1px solid white;
-    width: 45%;
+  background-color: black;
+  color: white;
+  border: 1px solid white;
+  width: 100%;
 }
 
 .btn-success {
-    --bs-btn-bg: rgb(190, 162, 40);
-    --bs-btn-disabled-bg: rgb(190, 162, 40, 0.5);
-    --bs-btn-disabled-border-color: white;
-    --bs-btn-border-color: white;
-    --bs-btn-hover-bg: rgba(255, 187, 0, 0.247);
-    --bs-btn-hover-border-color: white;
-    --bs-btn-active-bg: rgb(190, 162, 40);
-    --bs-btn-active-border-color: white;
-    margin: 10px;
+  --bs-btn-bg: rgb(190, 162, 40);
+  --bs-btn-disabled-bg: rgb(190, 162, 40, 0.5);
+  --bs-btn-disabled-border-color: white;
+  --bs-btn-border-color: white;
+  --bs-btn-hover-bg: rgba(255, 187, 0, 0.247);
+  --bs-btn-hover-border-color: white;
+  --bs-btn-active-bg: rgb(190, 162, 40);
+  --bs-btn-active-border-color: white;
+  margin: 10px;
+  width: 100%;
 }
 
-.btn-cancel {
-    --bs-btn-hover-border-color: white;
-    --bs-btn-border-color: white;
-    --bs-btn-hover-bg: rgb(255, 255, 255, 0.2);
-    --bs-btn-color: white;
-}
-
-input[type='checkbox'] {
-    accent-color: yellow;
+input[type="text"]:focus {
+  border-color: #ffbb00;
+  box-shadow: 0 0 5px #ffbb00;
 }
 
 .btn {
-    width: 45%;
-}
-
-.btn-success{
-    margin: 0;
+  width: 100%;
 }
 
 .center {
-    margin: auto;
-    width: 50%;
-    padding: 10px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding: 10px;
+}
+
+form {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group, .form-actions {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.h3-reserved{
+  margin-top: 30px;
+  margin-bottom: 20px;
 }
