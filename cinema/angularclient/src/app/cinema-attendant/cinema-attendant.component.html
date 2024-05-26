@@ -1,21 +1,21 @@
+<div class="everything">
 <form>
     <div class="form-group">
-        <label>ticket:</label>
+        <label>Ticket code:</label>
         <input type="text" [(ngModel)]="ticketInput" name="ticket" required class="form-control">
     </div>
-    <br>
-    <div class="form-actions flex justify-content-center">
-        <button type="submit" class="btn btn-success" (click)="checkTicket()">Save</button>
+    <div class="form-actions">
+        <button type="submit" class="btn btn-success" (click)="checkTicket()">Check Ticket</button>
     </div>
 </form>
-<div *ngIf="reservation !== undefined">
+<div class ="reservation-container" *ngIf="reservation !== undefined">
     <h2 *ngIf="reservation.ticket === 'UNFOUNDED'">Reservation INVALID</h2>
     <div *ngIf="reservation.ticket !== 'UNFOUNDED'">
-        <h2>Reservation: </h2>
-        <p><b>Reserved Seats:</b></p>
+       <!--<h2>Reservation: </h2>-->
+        <h3 class="h3-reserved">Reserved Seats:</h3>
         @for (seat of reservation.reservedSeats; track seat.id) {
             <p>Row: {{seat.seat.seatRow}} Number: {{seat.seat.number}} Status: {{seat.seatStatus}}</p>
         }
     </div>
+  </div>
 </div>
-

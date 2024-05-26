@@ -1,0 +1,69 @@
+.form-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 70vh;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.h2-login{
+  margin: 0;
+  text-align: center;
+}
+.form-group input, .form-group label {
+  display: block;
+  width: 100%;
+  padding: 5px;
+  margin-top: 5px;
+  border-bottom-color: #f0f0f0;
+  background-color: black;
+}
+
+input[type="text"], input[type="password"] {
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  padding: 10px;
+  font-size: 16px;
+  color: white;
+}
+  input[type="text"]:focus, input[type="password"]:focus {
+    border-color: #ffbb00;
+    box-shadow: 0 0 5px #ffbb00;
+  }
+
+.btn-success {
+  background-color: rgb(190, 162, 40);
+  border-color: white;
+  padding: 10px 20px;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn-success:hover {
+background-color: rgba(255, 187, 0, 0.247);
+}
+.btn-cancel {
+  background-color: #6c757d;
+  color: white;
+  border-color: white;
+  text-decoration: none;
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  text-align: center;
+}
+
+.btn-cancel:hover {
+  background-color: #5a6268;
+}
+
+.btn {
+  margin-top: 20px;
+  width: 150px;
+}
