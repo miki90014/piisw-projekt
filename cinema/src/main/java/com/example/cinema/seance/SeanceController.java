@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 
@@ -19,6 +20,7 @@ public class SeanceController {
     @GetMapping("/movies/{movieId}/seances")
     public List<Seance> getSeances(@PathVariable ("movieId") Long movieId) {
         List<Seance> seances = seanceRepository.findByMovieId(movieId);
+        seances.sort(Comparator.comparing(Seance::getDateOfSeance));
         if (!seances.isEmpty()) {
             return seances;
         } else {

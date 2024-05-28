@@ -30,9 +30,13 @@
           <h3>Showtimes</h3>
         </div>
 
-
-        <section class="d-flex flex-row gap-2">
-          @for (seance of seances; track seance.id) {
+        <div class="container_showtimes">
+          @for (seance of seances; track seance.id; let  i = $index) {
+          <div *ngIf="shouldCreateNewDiv(i)">
+            <div class="new-date-divider">
+              <br>
+            </div>
+          </div>
           <a [routerLink]="['../../available_seats', seance.id]">
           <div class="container-time-button">
               <div class="container-datetime">
@@ -41,7 +45,9 @@
            </div>
           </a>
           }
-        </section>
+        </div>
+
+
       </div>
     </div>
   </div>

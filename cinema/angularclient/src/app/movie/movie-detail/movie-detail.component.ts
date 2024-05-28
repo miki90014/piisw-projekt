@@ -27,6 +27,20 @@ convert(dateString: string) {
 
   return formattedDate
 }
+
+shouldCreateNewDiv(index: number): boolean {
+  if (index === 0) return false;
+  const current = this.getFirstTwoCharacters(this.seances[index].dateOfSeance);
+  const previous = this.getFirstTwoCharacters(this.seances[index - 1].dateOfSeance);
+  return current !== previous;
+}
+
+getFirstTwoCharacters(dateOfSeance: string): string {
+  const date = new Date(dateOfSeance);
+  const day = date.getDate().toString().padStart(2, '0');
+  return day;
+}
+
   readonly seances: MovieSeance[];
 
   constructor(private readonly activatedRoute: ActivatedRoute) {

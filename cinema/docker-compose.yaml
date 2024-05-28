@@ -1,0 +1,24 @@
+services:
+  mysql:
+    image: mysql:8.0.35
+    ports:
+      - "3306:3306"
+    env_file: .env
+    healthcheck:
+      test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
+      timeout: 20s
+      retries: 10
+  app:
+    build: .
+    image: cinema
+    depends_on:
+      mysql:
+        condition: service_healthy
+    ports:
+      - "8080:8080"
+    env_file: .env
+  client:
+    build: ./angularclient/
+    image: cinema-client
+    ports:
+      - "4200:4200"

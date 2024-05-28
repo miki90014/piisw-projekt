@@ -1,3 +1,10 @@
+.container_showtime {
+    left: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
 .everything{
     margin-top: 40px;
 }
@@ -60,9 +67,12 @@ h3 {
 }
 
 .container-time-button {
-    margin-left: 20px;
+    display: inline-flex;
+    align-items: center;
+    margin-left: 10px;
     width: 150px;
     padding: 10px;
+    margin-top: 10px;
     outline-style: solid;
     outline-width: 1px;
     border-radius: 5px;
