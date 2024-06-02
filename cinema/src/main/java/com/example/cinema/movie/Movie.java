@@ -18,8 +18,4 @@ public class Movie {
     private String movieDescription;
     private String movieRunningTime;
     private String movieThumbnailUrl;
-    //private String movieDirector;
-    //private String movieGenre;
-    //private String movieRating;
-    //private String movieYear;
 }
