@@ -32,6 +32,4 @@ public class ScheduledTasks {
             availableSeatsRepository.save(availableSeats);
         }
     }
-
-
 }

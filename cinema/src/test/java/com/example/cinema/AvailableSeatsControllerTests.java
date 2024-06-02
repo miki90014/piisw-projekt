@@ -1,18 +1,18 @@
 package com.example.cinema;
 
 import com.example.cinema.availableseats.AvailableSeats;
+import com.example.cinema.availableseats.AvailableSeatsController;
 import com.example.cinema.availableseats.AvailableSeatsRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.test.context.junit.jupiter.SpringExtension;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.test.web.servlet.MockMvc;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 import java.util.Arrays;
 import java.util.Optional;
@@ -21,21 +21,23 @@ import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-@ExtendWith(SpringExtension.class)
-@SpringBootTest
-@AutoConfigureMockMvc
+@ExtendWith(MockitoExtension.class)
 public class AvailableSeatsControllerTests {
-    @Autowired
+
     private MockMvc mockMvc;
 
-    @MockBean
+    @Mock
     private AvailableSeatsRepository availableSeatsRepository;
+
+    @InjectMocks
+    private AvailableSeatsController availableSeatsController;
 
     private AvailableSeats seat1;
     private AvailableSeats seat2;
 
     @BeforeEach
     void setUp() {
+        mockMvc = MockMvcBuilders.standaloneSetup(availableSeatsController).build();
         seat1 = new AvailableSeats();
         seat2 = new AvailableSeats();
     }
